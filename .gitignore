@@ -23,13 +23,13 @@
 
 # Ignore drupal core (if not versioning drupal sources)
 /core
-/Capacitacion/web/modules/README.txt
+/Capacitacion/web/modules/*
 /Capacitacion/web/profiles/README.txt
 /Capacitacion/web/sites/README.txt
 /Capacitacion/web/sites/example.sites.php
 /Capacitacion/web/example.settings.local.php
 /Capacitacion/web/sites/development.services.yml
-/Capacitacion/web/themes/README.txt
+/Capacitacion/web/themes/*
 /Capacitacion/vendor
 /Capacitacion/web/.csslintrc
 /.editorconfig
