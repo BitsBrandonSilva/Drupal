@@ -25,7 +25,8 @@
         "drupal/layout_builder_modal": "^1.1",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
-        "drupal/pathauto": "^1.8"
+        "drupal/pathauto": "^1.8",
+        "drupal/video_embed_field": "^2.4"
     },
     "conflict": {
         "drupal/drupal": "*"
