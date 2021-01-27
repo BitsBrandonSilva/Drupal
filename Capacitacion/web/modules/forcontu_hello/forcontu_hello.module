@@ -1,0 +1,7 @@
+<?php
+
+/**
+* @file
+* Module file for Forcontu Hello
+* Este módulo crea una página estática con un mensaje de bienvenida.
+*/

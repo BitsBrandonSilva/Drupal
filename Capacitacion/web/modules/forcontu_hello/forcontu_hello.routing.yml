@@ -1,0 +1,7 @@
+forcontu_hello.hello:
+  path: '/forcontu/hello'
+  defaults:
+    _controller: '\Drupal\forcontu_hello\Controller\ForcontuHelloController::hello'
+    _title: 'Hello Page'
+  requirements:
+    _permission: 'access content'
