@@ -21,18 +21,24 @@
 # Ignore testing related files
 /Capacitacion/web/sites/simpletest
 
+# Ignore .idea
+/Capacitacion/.idea
+
 # Ignore drupal core (if not versioning drupal sources)
 /core
-/Capacitacion/web/modules/*
+/Capacitacion/web/core/*
+/Capacitacion/web/sites/default/*
+/Capacitacion/web/modules/contrib
 /Capacitacion/web/profiles/README.txt
 /Capacitacion/web/sites/README.txt
 /Capacitacion/web/sites/example.sites.php
 /Capacitacion/web/example.settings.local.php
 /Capacitacion/web/sites/development.services.yml
 /Capacitacion/web/themes/*
-/Capacitacion/vendor
+/vendor/*
+/Capacitacion/vendor/*
 /Capacitacion/web/.csslintrc
-/.editorconfig
+/Capacitacion/.editorconfig
 /Capacitacion/web/.eslintignore
 /Capacitacion/web/.eslintrc.json
 /.gitattributes
