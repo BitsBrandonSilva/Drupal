@@ -1,0 +1,26 @@
+<?php
+/**
+* @file
+* Contains install and update functions for Forcontu Hello.
+*/
+    use Drupal\taxonomy\Entity\Term;
+
+/**
+* Implements hook_install().
+*/
+
+function forcontu_hello_install() {
+
+    //1. Creación y asignación de una variable de estado
+
+        \Drupal::state()->set('forcontu_hello.test', TRUE);
+
+    //2. Creación de un término de taxonomía
+
+        $term = Term::create(array(
+        'name' => t('Forcontu Hello'),
+        'vid' => 'category'
+        ));
+
+        $term->save();
+}
