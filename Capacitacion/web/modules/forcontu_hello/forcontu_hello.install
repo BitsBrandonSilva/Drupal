@@ -24,3 +24,170 @@ function forcontu_hello_install() {
 
         $term->save();
 }
+
+/**
+ * @file
+ * Install, update and uninstall functions for File module.
+ */
+/**
+ * Creacion de una tabla de la base de datos
+ *
+ * Ejemplo de definición de varias tablas
+ * en una única implementación de hook_schema().
+ *
+ * Implements hook_schema().
+ */
+function forcontu_hello_schema() {
+  $schema['forcontu_hello_module'] = array(
+    'description' => 'Rastrea donde se unsa el archivo.',
+    'fields' => array(
+      'fid' => array(
+        'description' => 'File ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'module' => array(
+        'description' => 'El nombre del modulo que esta usando el archivo.',
+        'type' => 'varchar_ascii',
+        'length' => DRUPAL_EXTENSION_NAME_MAX_LENGTH,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'type' => array(
+        'description' => 'Tipo de intrumento.',
+        'type' => 'varchar_ascii',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'id' => array(
+        'description' => 'La clave principal del objeto que usa el archivo.',
+        'type' => 'varchar_ascii',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count' => array(
+        'description' => 'Numero de cuerdas del intrumento',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('fid' ,'type', 'id'),
+    'indexes' => array(
+      'type_id' => array('type', 'id'),
+      'fid_count' => array('fid', 'count'),
+    ),
+  );
+
+  $schema['forcontu_hello_search_schema'] = array(
+    'description' => 'Almacena elementos que se buscarán.',
+    'fields' => array(
+      'fid' => array(
+        'description' => 'File ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'module' => array(
+        'description' => 'El nombre del modulo que esta usando el archivo.',
+        'type' => 'varchar_ascii',
+        'length' => DRUPAL_EXTENSION_NAME_MAX_LENGTH,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+
+      'id' => array(
+        'description' => 'La clave principal del objeto que usa el archivo.',
+        'type' => 'varchar_ascii',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count' => array(
+        'description' => 'El numero de veces que el archivo es usado...',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('fid', 'id', 'module'),
+    'indexes' => array(
+      'fid_count' => array('fid', 'count'),
+      'fid_module' => array('fid', 'module'),
+    ),
+  );
+
+  $schema['forcontu_hello_search_index'] = array(
+    'description' => 'Almacena el índice de búsqueda, asociando palabras.',
+    'fields' => array(
+      'fid' => array(
+        'description' => 'File ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'id' => array(
+        'description' => 'La clave principal del objeto que usa el archivo.',
+        'type' => 'varchar_ascii',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count' => array(
+        'description' => 'El numero de veces que el archivo es usado...',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('fid', 'id'),
+    'indexes' => array(
+      'fid_count' => array('fid', 'count')
+    ),
+  );
+
+  $schema['forcontu_hello_test_one'] = array(
+    'description' => 'Almacena el índice de búsqueda, asociando palabras.',
+    'fields' => array(
+      'guitar' => [
+        'description' => 'Campo prueba1.',
+        'type' => 'varchar',
+        'length' => 50,
+        'default' => '',
+      ],
+      'type' => [
+        'description' => 'Campo prueba2.',
+        'type' => 'varchar',
+        'length' => 50,
+        'default' => '',
+      ],
+      'cuerdas' => [
+        'description' => 'Campo prueba3.',
+        'type' => 'int',
+        'size' => 'small',
+        'default' => 0,
+      ],
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'Email',
+      ),
+      'ip' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User IP',
+      ),
+    )
+  );
+  return $schema;
+}
