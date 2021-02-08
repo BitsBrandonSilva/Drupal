@@ -1,0 +1,5 @@
+name: Forcontu forms
+description: Form Api
+package: Forcontu
+type: module
+core_version_requirement: '9.x'
