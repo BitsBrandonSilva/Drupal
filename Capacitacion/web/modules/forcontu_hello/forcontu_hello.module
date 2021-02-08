@@ -24,11 +24,23 @@ switch ($route_name) {
     return $output;
 
     // Help for another path in the Forcontu Hello module.
-    
+
     case 'forcontu_hello.hello':
         $output = '';
-        $output .= '<p>' . t('This is a very simple page created by
-        the Forcontu Hello module. ') . '</p>';
+        $output .= '<p>' . t('This is a very simple page created by the Forcontu Hello module. ') . '</p>';
     return $output;
     }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function forcontu_hello_theme($existing, $type, $theme, $path)
+{
+  return [
+    'forcontu_hello' => [
+      'variables' => ['my_node' => NULL],
+      'template' => 'forcontu-hello'
+    ]
+  ];
 }
