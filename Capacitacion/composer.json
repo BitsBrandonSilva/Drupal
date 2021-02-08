@@ -22,11 +22,13 @@
         "drupal/core-recommended": "^9.1",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.1",
+        "drupal/devel_kint_extras": "^1.0",
         "drupal/layout_builder_modal": "^1.1",
         "drupal/page_manager": "^4.0@beta",
         "drupal/panels": "^4.6",
         "drupal/pathauto": "^1.8",
-        "drupal/video_embed_field": "^2.4"
+        "drupal/video_embed_field": "^2.4",
+        "drush/drush": "^10.3"
     },
     "conflict": {
         "drupal/drupal": "*"
