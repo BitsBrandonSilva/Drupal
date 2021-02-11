@@ -15,9 +15,11 @@ class ForcontuHelloController extends ControllerBase {
 
         //----Consulta
         $node = \Drupal::entityTypeManager()->getStorage('node')->load(1);
+        $form = \Drupal::formBuilder()->getForm('Drupal\forcontu_hello_forms\Form\Simple');
         dpm('HolaMundo_desde el controlador');
         dpm($node->toArray());
         $build['#markup'] = '<p>' . $this->t('Hello, World! This is my first module in Drupal 9!!!!') . '</p>';
+        $build[] = $form;
         $build['template'] = [
           '#theme' => 'forcontu_hello',
           '#my_node' => $node->toArray()
