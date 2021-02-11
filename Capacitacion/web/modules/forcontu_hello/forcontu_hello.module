@@ -41,6 +41,10 @@ function forcontu_hello_theme($existing, $type, $theme, $path)
     'forcontu_hello' => [
       'variables' => ['my_node' => NULL],
       'template' => 'forcontu-hello'
+    ],
+    'forcontu_hello_forms' => [
+      'template' => 'forcontu_hello_form',
+      'render element' => 'form'
     ]
   ];
 }
