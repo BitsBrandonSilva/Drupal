@@ -81,6 +81,8 @@ class Simple extends FormBase {
       '#value' => $this->t('Delete'),
     ];
 
+    $form['#theme'] = 'forcontu_hello_forms';
+
     return $form;
   }
   public function getFormId() {
@@ -112,6 +114,17 @@ class Simple extends FormBase {
         'ip' => \Drupal::request()->getClientIP(),
       ])
       ->execute();
+
+    \Drupal::messenger()->addStatus(t('The form has been submitted correctly'));
+
+    \Drupal::logger('forcontu_hello_forms')->notice('New Simple Form entry
+        from user %user_email inserted: %guitar.',
+      [
+        '%user_email' => $form_state->getValue('user_email'),
+        '%guitar' => $form_state->getValue('guitar'),
+      ]);
+
+    $form_state->setRedirect('forcontu_hello.hello');
   }
 
 }
