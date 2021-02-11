@@ -5,3 +5,11 @@ forcontu_hello.hello:
     _title: 'Hello Page'
   requirements:
     _permission: 'access content'
+
+forcontu_hello.form:
+  path: '/form'
+  defaults:
+    _form: '\Drupal\forcontu_hello_forms\Form\Simple'
+    _title: 'Simple Form forcontu module'
+  requirements:
+    _permission: 'access content'
