@@ -1,0 +1,3 @@
+services:
+  forcontu_hello.tools:
+    class: Drupal\forcontu_hello\Services\ForcontuHelloTools
