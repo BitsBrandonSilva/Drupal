@@ -1,0 +1,12 @@
+forcontu_hello:
+  version: 1.0
+  css:
+    theme:
+      assets/css/style.css: {}
+  js:
+    assets/js/forcontu.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+    - core/jquery.once
