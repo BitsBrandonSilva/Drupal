@@ -13,3 +13,10 @@ forcontu_hello.form:
     _title: 'Simple Form forcontu module'
   requirements:
     _permission: 'access content'
+
+my_first_ajax_call:
+  path: '/ajax/consulta'
+  defaults:
+    _controller: '\Drupal\forcontu_hello\Controller\ForcontuHelloController::my_first_ajax_call'
+  requirements:
+    _permission: 'access content'

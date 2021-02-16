@@ -5,12 +5,21 @@
 */
 namespace Drupal\forcontu_hello\Controller;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
 * Controlador para devolver el contenido de las páginas definidas
 */
 class ForcontuHelloController extends ControllerBase {
-    public function hello() {
+  protected $service;
+
+  public function __construct()
+  {
+    $this->service = \Drupal::service('forcontu_hello.tools');
+  }
+
+  public function hello() {
         $build = [];
 
         //----Consulta
@@ -22,7 +31,13 @@ class ForcontuHelloController extends ControllerBase {
         $build[] = $form;
         $build['template'] = [
           '#theme' => 'forcontu_hello',
-          '#my_node' => $node->toArray()
+          '#my_node' => $node->toArray(),
+          '#cache' => [ 'max-age' => 0 ],
+          '#attached' => [
+            'library' => [
+              'forcontu_hello/forcontu_hello'
+            ]
+          ]
         ];
 
       /**
@@ -159,5 +174,22 @@ class ForcontuHelloController extends ControllerBase {
       //$connection->truncate('forcontu_hello_test_one')->execute();
 
       return $build;
+    }
+
+  /**
+   * @param Request $request
+   * @return JsonResponse
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * Llamado ajax en Drupal
+   */
+    public function my_first_ajax_call(Request $request) {
+      if($request->isXmlHttpRequest()) {
+        $node_id = $request->request->get('node_id');
+        $node = \Drupal::entityTypeManager()->getStorage('node')->load($node_id)->toArray();
+        return new JsonResponse(['node' => $node]);
+      } else {
+        throw new \Exception('INTRUDER!!!');
+      }
     }
 }
