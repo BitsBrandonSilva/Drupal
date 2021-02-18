@@ -1,0 +1,6 @@
+break_hello.pet:
+  title: Break
+  description: 'Break Page menu link'
+  route_name: break.pet
+  menu_name: main
+  weight: 5

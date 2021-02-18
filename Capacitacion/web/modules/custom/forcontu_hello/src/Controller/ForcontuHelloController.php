@@ -12,11 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 * Controlador para devolver el contenido de las páginas definidas
 */
 class ForcontuHelloController extends ControllerBase {
-  protected $service;
 
-  public function __construct()
-  {
-    $this->service = \Drupal::service('forcontu_hello.tools');
+  public function service(){
+    $our_service = \Drupal::service('forcontu_hello.tools');
+    return new JsonResponse(['Hola'=>$our_service->firstFunction()]);
+    //return new JsonResponse(['Hola'=>'Nikki']);
   }
 
   public function hello() {

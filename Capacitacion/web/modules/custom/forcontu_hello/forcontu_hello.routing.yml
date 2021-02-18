@@ -6,6 +6,13 @@ forcontu_hello.hello:
   requirements:
     _permission: 'access content'
 
+forcontu_hello.service:
+  path: '/service'
+  defaults:
+    _controller: '\Drupal\forcontu_hello\Controller\ForcontuHelloController::service'
+  requirements:
+    _permission: 'access content'
+
 forcontu_hello.form:
   path: '/form'
   defaults:

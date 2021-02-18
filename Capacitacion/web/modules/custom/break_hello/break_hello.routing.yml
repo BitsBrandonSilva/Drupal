@@ -1,0 +1,7 @@
+break.pet:
+  path: '/break_pet/Adopta'
+  defaults:
+    _controller: '\Drupal\break_hello\Controller\BreakHelloController::namePet'
+    _title: 'Adopta_un_perro'
+  requirements:
+    _permission: 'access content'

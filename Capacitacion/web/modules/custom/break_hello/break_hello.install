@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Break Pet.
+ */
+
+/**
+ * Implements hook_schema
+ */
+
+function break_hello_schema() {
+  $schema['break_pet'] = array(
+    'description' => 'Informacion adoptantes',
+    'fields' => array(
+      'user_id' => [
+        'description' => 'User_id del adoptante',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'name_adopt' => array (
+        'description' => 'Nombre del adoptante',
+        'type' => 'varchar',
+        'length' => 50,
+      ),
+      'email_adopt' => array (
+        'description' => 'Correo del adoptante',
+        'type' => 'varchar',
+        'length' => 50,
+      ),
+      'fn_adopt' => array (
+        'description' => 'Fecha de nacimiento del adoptante',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ),
+      'pet_name' => array (
+        'description' => 'Nombre del perro a adoptar',
+        'type' => 'varchar',
+        'length' => 50,
+      ),
+      'primary key' => ['user_id'],
+    )
+  );
+  return $schema;
+}

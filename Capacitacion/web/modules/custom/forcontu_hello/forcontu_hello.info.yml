@@ -1,5 +1,5 @@
 name: Drupal Hello World
 type: module
 description: 'Hello World.'
-packge: drupal
+package: drupal
 core_version_requirement: '9.x'
